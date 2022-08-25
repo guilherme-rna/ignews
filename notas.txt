@@ -1,0 +1,111 @@
+Continuar 1.7 configurando fonte externa.
+
+################################################
+
+Para criar um novo projeto next
+
+yarn create next-app ignews
+yarn add typescript @types/react @types/node -D
+
+adicionar "moduleResolution": "node" no tsconfig.json
+
+#iniciar
+yarn dev
+
+todas as paginas precisam ter export default.
+
+##################### Estilização ###########################
+
+criar uma pasta styles com nome do arquivo home.modules.css
+    só pode usar classes exemplo 
+        .title { color: red}
+Na classe 
+    import styles from '../styles/home.module.css'
+    <h1 className={styles.title}>Hello</h1>
+
+dica: usar css modules extensions
+
+Usar o sass yarn add sass
+
+alterar o nome do arquivo home.module.css para home.module.scss
+
+################################################
+
+Cliente Http: axios
+
+yarn add axios
+
+configuração 
+
+services/api.ts 
+
+export const api = axios.create({
+    baseURL: 'http://localhost:3000/api'
+})
+
+################################################
+
+React modal:
+
+yarn add react-modal
+
+exemplo dt money tela Header
+
+
+
+
+
+
+
+########################
+
+Curiosidades 
+
+----------------------------------------------
+Se passar o nome da cor que você precisa, ele retorna o hexadecimal.
+
+activeColor: 'green' | 'red';
+
+const colors = {
+    red: '#E52E4D',
+    green: '#33cc95'
+}
+
+colors[activeColor];
+
+----------------------------------------------
+
+Formatar para moeda R$ 100,00
+
+{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(item.amount)}
+
+Formatar data
+{new Intl.DateTimeFormat("pt-BR").format(new Date(item.createdAt))}</td>
+
+----------------------------------------------
+
+Utilizando reduce
+
+const totalDeposits = transactions.reduce((acc, transaction) => {
+    if(transaction.type === 'deposit'){
+        return acc + transaction.amount;
+    }
+    return acc;
+}, 0);
+
+ou 
+const summary = transactions.reduce((acc, transaction) => {
+        if(transaction.type === 'deposit'){
+            acc.deposits += transaction.amount;
+            acc.total += transaction.amount;
+        }else{
+            acc.withdraw += transaction.amount;
+            acc.total -= transaction.amount;
+        }
+
+        return acc;
+    }, {
+        deposits:0,
+        withdraw:0,
+        total:0,
+    }) 
