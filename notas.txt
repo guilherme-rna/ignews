@@ -56,7 +56,16 @@ Exemplo:
 
 ################################################
 
-Stripe para pagamentos.
+Stripe para pagamentos. 4242 para testar cartão
+
+yarn add stripe
+yarn add @stripe/stripe-js
+
+Testar local
+
+brew install stripe/stripe-cli/stripe
+stripe login
+stripe listen --forward-to localhost:3000/api/webhooks
 
 Criar produto, depois em dev/api key pegar a secret key
 
@@ -86,37 +95,47 @@ https://next-auth.js.org/getting-started/example
 npm install next-auth
 
 
+################################################
 
+FaunaDB, banco na nuvem para usar no frontend, projetos pequenos, serveless, nosql
 
+########################
 
+WEB HOOKS
 
-Cliente Http: axios
+API DE TERCEIROS SE COMUNICA COM A NOSSA API.
 
-yarn add axios
-
-configuração 
-
-services/api.ts 
-
-export const api = axios.create({
-    baseURL: 'http://localhost:3000/api'
-})
 
 ################################################
 
-React modal:
+JAMStack
 
-yarn add react-modal
+js = funcionamento para aplicação
+API = api de teceiros, fauna, stripe...
+Markup = html, estrutura da pagina.
 
-exemplo dt money tela Header
+CMS (content management system) - wordpress, joomla
+
+headless CMS (Painel de admin + api HTTP, GraphQL, sdk) 
+
+Strapi
+Ghost (Blog)
+Keystone
+
+Melhores mas pago.
+    GraphCMS
+    Prismic CMS
+    ContentFul
+
+e-commerc
+    shopify
+    Saleor
+
+yarn add @prismicio/client @prismicio/react
+yarn add prismic-dom
 
 
-
-
-
-
-
-########################
+npx @slicemachine/init --repository guilherme-ignews && npm run slicemachine
 
 Curiosidades 
 
